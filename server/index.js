@@ -6,8 +6,7 @@ const dotenv = require('dotenv');
 const userRoute = require("./routes/User")
 const taskRoute = require("./routes/Tasks")
 const {Server} = require('socket.io');
-const { protect } = require('./middleware/VerifyToken');
-const Tasks = require('./models/Tasks');
+
 
 
 
