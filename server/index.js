@@ -17,13 +17,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server,{
   cors: {
-    origin: "https://task-manager-englighten-client.vercel.app",  // Accept all origins (or restrict to specific origins)
+    origin: "https://task-manager-englighten-client.vercel.app", 
     methods: ["GET", "POST","PUT","DELETE"],
-    allowedHeaders: ["Content-Type", "authorization"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   }});
 
-// Middleware
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use((req,res,next)=>{
@@ -31,12 +31,12 @@ app.use((req,res,next)=>{
   next()
 })
 const corsOptions = {
-  origin:  "https://task-manager-englighten-client.vercel.app",  // Allows all origins to make requests
-  methods: ["GET", "POST","PUT", "DELETE"],  // Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "authorization"], // Allowed request headers
-  credentials: true,  // Allows cookies to be sent in cross-origin requests
-  preflightContinue: false,  // Allow preflight requests
-  optionsSuccessStatus: 200,  // HTTP status for successful preflight request
+  origin:  "https://task-manager-englighten-client.vercel.app",  
+  methods: ["GET", "POST","PUT", "DELETE"],  
+  allowedHeaders: ["Content-Type", "authorization"], 
+  credentials: true, 
+  preflightContinue: false, 
+  optionsSuccessStatus: 200,  
 };
 app.use(cors(corsOptions));
 
