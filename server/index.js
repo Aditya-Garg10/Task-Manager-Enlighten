@@ -17,9 +17,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server,{
   cors: {
-    origin: "*",  // Accept all origins (or restrict to specific origins)
+    origin: "https://task-manager-englighten-client.vercel.app",  // Accept all origins (or restrict to specific origins)
     methods: ["GET", "POST","PUT","DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "authorization"],
     credentials: true,
   }});
 
@@ -31,7 +31,7 @@ app.use((req,res,next)=>{
   next()
 })
 const corsOptions = {
-  origin:  "http://localhost:3000",  // Allows all origins to make requests
+  origin:  "https://task-manager-englighten-client.vercel.app",  // Allows all origins to make requests
   methods: ["GET", "POST","PUT", "DELETE"],  // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "authorization"], // Allowed request headers
   credentials: true,  // Allows cookies to be sent in cross-origin requests
