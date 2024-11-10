@@ -13,9 +13,7 @@ const createUser = async(req, res) => {
       const user = new User({ username, password, email });
   await user.save();
 
-      const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET, {
-        expiresIn: '3h',
-      }); 
+      const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET); 
       const success = true;
       res.status(201).json({success, message: 'User registered',token:token });
     } catch (error) {
@@ -34,9 +32,7 @@ const createUser = async(req, res) => {
     const isMatch = await user.password === password;
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
   
-    const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET, {
-      expiresIn: '3h',
-    });  
+    const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET);  
     const success = true;
     res.json({ token ,success,user});
    } catch (error) {
