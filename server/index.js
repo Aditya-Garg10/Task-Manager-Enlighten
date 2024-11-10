@@ -45,12 +45,10 @@ app.use(cors(corsOptions));
 io.on("connection",(socket)=>{
   console.log("client connected",socket.id)         
   socket.on("message",(data)=>{
-    // io.emit("msg",data);
+    
     
   })
-  // socket.on("message",message=>{
-  //   console.log("new message",message)
-  // })
+  
 })
 
 
